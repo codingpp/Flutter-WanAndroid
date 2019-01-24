@@ -1,4 +1,4 @@
-package com.pan.flutterapp;
+package com.pan.wanandroid;
 
 import android.os.Bundle;
 import io.flutter.app.FlutterActivity;

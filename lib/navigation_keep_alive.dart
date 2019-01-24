@@ -1,3 +1,5 @@
+import 'package:WanAndroid/pages/HomePage.dart';
+import 'package:WanAndroid/pages/MyPage.dart';
 import 'package:flutter/material.dart';
 
 class NavigationKeepAlive extends StatefulWidget {
@@ -24,7 +26,13 @@ class NavigationKeepAliveState extends State<NavigationKeepAlive>
     return Scaffold(
       body: PageView(
         controller: _controller,
-        children: <Widget>[],
+        children: <Widget>[
+          HomePage(),
+          HomePage(),
+          HomePage(),
+          HomePage(),
+          HomePage(),
+        ],
         physics: NeverScrollableScrollPhysics(),
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -43,18 +51,45 @@ class NavigationKeepAliveState extends State<NavigationKeepAlive>
                 color: _bottomNavigationColor,
               ),
               title: Text(
-                'Home',
+                '首页',
                 style: TextStyle(color: _bottomNavigationColor),
               )),
           BottomNavigationBarItem(
               icon: Icon(
-                Icons.email,
+                Icons.bookmark,
                 color: _bottomNavigationColor,
               ),
               title: Text(
-                'Email',
+                '知识体系',
                 style: TextStyle(color: _bottomNavigationColor),
-              ))
+              )),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.chat,
+                color: _bottomNavigationColor,
+              ),
+              title: Text(
+                '公众号',
+                style: TextStyle(color: _bottomNavigationColor),
+              )),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.navigation,
+                color: _bottomNavigationColor,
+              ),
+              title: Text(
+                "导航",
+                style: TextStyle(color: _bottomNavigationColor),
+              )),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.library_books,
+                color: _bottomNavigationColor,
+              ),
+              title: Text(
+                '项目',
+                style: TextStyle(color: _bottomNavigationColor),
+              )),
         ],
       ),
     );
