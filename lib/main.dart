@@ -8,7 +8,7 @@ class WanAndroid extends StatelessWidget {
   Widget build(BuildContext context) {
     return new MaterialApp(
         title: 'WanAndroid',
-        theme: new ThemeData.dark(),
+        theme: new ThemeData(primaryColor: Colors.blue),
         home: NavigationKeepAlive());
   }
 }

@@ -1,5 +1,5 @@
-import 'package:WanAndroid/pages/HomePage.dart';
-import 'package:WanAndroid/pages/MyPage.dart';
+import 'package:WanAndroid/pages/home_page.dart';
+import 'package:WanAndroid/pages/my_page.dart';
 import 'package:flutter/material.dart';
 
 class NavigationKeepAlive extends StatefulWidget {

@@ -21,7 +21,7 @@ class HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin {
       accountEmail: new Text("gmail"),
       currentAccountPicture: new CircleAvatar(
         backgroundImage: AssetImage(
-          'images/pic1.jpg',
+          'images/avatar.png',
         ),
         radius: 35.0,
       ),
@@ -44,26 +44,35 @@ class HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin {
           children: <Widget>[
             userHeader,
             ListTile(
-                title: Text('part1'),
+                title: Text('收藏'),
                 leading: new CircleAvatar(
-                  child: new Icon(Icons.school),
+                  child: new Icon(Icons.tab),
                 ),
                 onTap: () {
                   Navigator.pop(context);
                 }),
             ListTile(
-              title: Text('part2'),
+              title: Text('夜间模式'),
               leading: new CircleAvatar(
-                child: new Icon(Icons.school),
+                child: new Icon(Icons.wb_sunny),
               ),
               onTap: () {
                 Navigator.pop(context);
               },
             ),
             ListTile(
-              title: Text('part3'),
+              title: Text('设置'),
               leading: new CircleAvatar(
-                child: new Icon(Icons.school),
+                child: new Icon(Icons.settings),
+              ),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: Text('关于我们'),
+              leading: new CircleAvatar(
+                child: new Icon(Icons.info),
               ),
               onTap: () {
                 Navigator.pop(context);
