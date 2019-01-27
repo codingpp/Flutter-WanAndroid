@@ -142,15 +142,6 @@ class WanAndroidState extends State<WanAndroidWidget> {
                   Navigator.pop(context);
                 }),
             ListTile(
-              title: Text('夜间模式'),
-              leading: new CircleAvatar(
-                child: new Icon(Icons.wb_sunny),
-              ),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
               title: Text('设置'),
               leading: new CircleAvatar(
                 child: new Icon(Icons.settings),
