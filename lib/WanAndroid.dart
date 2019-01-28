@@ -3,6 +3,7 @@ import 'package:WanAndroid/tab/KnowledgePage.dart';
 import 'package:WanAndroid/tab/NavigationPage.dart';
 import 'package:WanAndroid/tab/ProjectPage.dart';
 import 'package:WanAndroid/tab/PublicPage.dart';
+import 'package:WanAndroid/util/ToastUtil.dart';
 import 'package:flutter/material.dart';
 
 class WanAndroid extends StatelessWidget {
@@ -91,11 +92,11 @@ class WanAndroidState extends State<WanAndroidWidget> {
     initData();
 
     Widget userHeader = UserAccountsDrawerHeader(
-      accountName: new Text('pan'),
-      accountEmail: new Text("gmail"),
+      accountName: new Text('demo'),
+      accountEmail: new Text("demo123@demo.com"),
       currentAccountPicture: new CircleAvatar(
         backgroundImage: AssetImage(
-          'images/avatar.png',
+          'images/avatar.jpg',
         ),
         radius: 35.0,
       ),
@@ -111,7 +112,7 @@ class WanAndroidState extends State<WanAndroidWidget> {
               color: Colors.white,
             ),
             tooltip: '搜索',
-            onPressed: null,
+            onPressed: _search,
           ),
         ],
       ),
@@ -135,34 +136,41 @@ class WanAndroidState extends State<WanAndroidWidget> {
             userHeader,
             ListTile(
                 title: Text('收藏'),
-                leading: new CircleAvatar(
-                  child: new Icon(Icons.tab),
+                leading: new Icon(
+                  Icons.tab,
+                  color: Colors.black54,
                 ),
                 onTap: () {
-                  Navigator.pop(context);
+                  ToastUtil.showMessage('TODO');
                 }),
             ListTile(
               title: Text('设置'),
-              leading: new CircleAvatar(
-                child: new Icon(Icons.settings),
+              leading: new Icon(
+                Icons.settings,
+                color: Colors.black54,
               ),
               onTap: () {
-                Navigator.pop(context);
+                ToastUtil.showMessage('TODO');
               },
             ),
             ListTile(
               title: Text('关于我们'),
-              leading: new CircleAvatar(
-                child: new Icon(Icons.info),
+              leading: new Icon(
+                Icons.info,
+                color: Colors.black54,
               ),
               onTap: () {
-                Navigator.pop(context);
+                ToastUtil.showMessage('TODO');
               },
             )
           ],
         ),
       ),
     );
+  }
+
+  void _search() {
+    ToastUtil.showMessage('TODO');
   }
 }
 

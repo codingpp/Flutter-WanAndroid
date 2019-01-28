@@ -10,7 +10,7 @@ class HomePage extends StatelessWidget {
 class HomePageState extends State<HomePageWidget> {
   @override
   Widget build(BuildContext context) {
-    return null;
+    return Text('我是首页');
   }
 }
 
