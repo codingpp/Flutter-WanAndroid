@@ -1,8 +1,8 @@
-import 'package:WanAndroid/tab/HomePage.dart';
-import 'package:WanAndroid/tab/KnowledgePage.dart';
-import 'package:WanAndroid/tab/NavigationPage.dart';
-import 'package:WanAndroid/tab/ProjectPage.dart';
-import 'package:WanAndroid/tab/PublicPage.dart';
+import 'package:WanAndroid/pages/tab/HomePage.dart';
+import 'package:WanAndroid/pages/tab/KnowledgePage.dart';
+import 'package:WanAndroid/pages/tab/NavigationPage.dart';
+import 'package:WanAndroid/pages/tab/ProjectPage.dart';
+import 'package:WanAndroid/pages/tab/PublicPage.dart';
 import 'package:WanAndroid/util/ToastUtil.dart';
 import 'package:flutter/material.dart';
 

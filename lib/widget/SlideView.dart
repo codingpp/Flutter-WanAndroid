@@ -1,3 +1,4 @@
+import 'package:WanAndroid/pages/ArticleDetailPage.dart';
 import 'package:flutter/material.dart';
 
 class SlideView extends StatefulWidget {
@@ -40,7 +41,7 @@ class SlideViewState extends State<SlideView>
         item['link'] = item['url'];
         items.add(new GestureDetector(
           onTap: () {
-            _handOnItemClick(data);
+            _handOnItemClick(item);
           },
           child: AspectRatio(
             aspectRatio: 2.0 / 1.0,
@@ -78,5 +79,11 @@ class SlideViewState extends State<SlideView>
     );
   }
 
-  void _handOnItemClick(itemData) {}
+  void _handOnItemClick(itemData) {
+    print(itemData.toString());
+    Navigator.of(context).push(new MaterialPageRoute(builder: (context) {
+      return new ArticleDetailPage(
+          title: itemData['title'], url: itemData['link']);
+    }));
+  }
 }

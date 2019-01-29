@@ -1,3 +1,4 @@
+import 'package:WanAndroid/pages/ArticleDetailPage.dart';
 import 'package:WanAndroid/util/ToastUtil.dart';
 import 'package:flutter/material.dart';
 
@@ -29,12 +30,12 @@ class ArticleItemState extends State<ArticleItem> {
   }
 
   void _itemClick(itemData) async {
-//    await Navigator.of(context).push(new MaterialPageRoute(builder: (context) {
-//      return new ArticleDetailPage(
-//        title:itemData['title'],
-//        url:itemData['link'],
-//      );
-//    }));
+    await Navigator.of(context).push(new MaterialPageRoute(builder: (context) {
+      return new ArticleDetailPage(
+        title: itemData['title'],
+        url: itemData['link'],
+      );
+    }));
   }
 
   @override
