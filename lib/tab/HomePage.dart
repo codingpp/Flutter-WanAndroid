@@ -1,7 +1,8 @@
+import 'dart:convert';
+
 import 'package:WanAndroid/constant/Constants.dart';
 import 'package:WanAndroid/http/Api.dart';
 import 'package:WanAndroid/util/NetUtils.dart';
-import 'package:WanAndroid/util/ToastUtil.dart';
 import 'package:WanAndroid/widget/ArticleItem.dart';
 import 'package:WanAndroid/widget/EndLine.dart';
 import 'package:WanAndroid/widget/SlideView.dart';
@@ -93,9 +94,9 @@ class HomePageState extends State<HomePage> {
     String bannerUrl = Api.BANNER;
     NetUtils.get(bannerUrl, params: null).then((data) {
       if (data != null) {
-        print("我是数据" + data);
+        var map = json.decode(data);
         setState(() {
-          bannerData = data;
+          bannerData = map['data'];
           _bannerView = new SlideView(bannerData);
         });
       }
@@ -103,14 +104,33 @@ class HomePageState extends State<HomePage> {
   }
 
   void getHomeArticleList() {
-//    String url = Api.ARTICLE_LIST;
-//    url += "$curPage/json";
-//
-//    NetUtils.get(url, params: null).then((data) {
-//      if (data != null) {
-//        Map<String, dynamic> map = data;
-//
-//      }
-//    });
+    String url = Api.ARTICLE_LIST;
+    url += "$curPage/json";
+
+    NetUtils.get(url, params: null).then((data) {
+      if (data != null) {
+        var temp = json.decode(data);
+        Map<String, dynamic> map = temp['data'];
+
+        var _listData = map['datas'];
+        listTotalSize = map['total'];
+
+        setState(() {
+          List list1 = new List();
+          if (curPage == 0) {
+            listData.clear();
+          }
+          curPage++;
+
+          list1.addAll(listData);
+          list1.addAll(_listData);
+
+          if (list1.length >= listTotalSize) {
+            list1.add(Constants.END_LINE_TAG);
+          }
+          listData = list1;
+        });
+      }
+    });
   }
 }

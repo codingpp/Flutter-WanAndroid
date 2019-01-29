@@ -1,5 +1,4 @@
 import 'package:WanAndroid/http/Api.dart';
-import 'package:WanAndroid/util/ToastUtil.dart';
 import 'package:http/http.dart' as http;
 
 /// 网络请求工具类
