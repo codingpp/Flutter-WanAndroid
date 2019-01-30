@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:WanAndroid/http/Api.dart';
 import 'package:WanAndroid/util/NetUtils.dart';
+import 'package:WanAndroid/util/ToastUtil.dart';
 import 'package:flutter/material.dart';
 
 class KnowledgePage extends StatefulWidget {
@@ -102,5 +103,7 @@ class KnowledgePageState extends State<KnowledgePage> {
     });
   }
 
-  void _onItemClick(itemData) {}
+  void _onItemClick(itemData) {
+    ToastUtil.showMessage('TODO_跳转');
+  }
 }

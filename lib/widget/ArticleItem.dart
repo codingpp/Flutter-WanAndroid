@@ -1,5 +1,4 @@
 import 'package:WanAndroid/pages/ArticleDetailPage.dart';
-import 'package:WanAndroid/util/ToastUtil.dart';
 import 'package:flutter/material.dart';
 
 class ArticleItem extends StatefulWidget {
@@ -25,10 +24,6 @@ class ArticleItem extends StatefulWidget {
 }
 
 class ArticleItemState extends State<ArticleItem> {
-  void _handleOnItemCollect(itemData) {
-//    _itemCollect(itemData);
-  }
-
   void _itemClick(itemData) async {
     await Navigator.of(context).push(new MaterialPageRoute(builder: (context) {
       return new ArticleDetailPage(
@@ -40,8 +35,6 @@ class ArticleItemState extends State<ArticleItem> {
 
   @override
   Widget build(BuildContext context) {
-    bool isCollect = widget.itemData['collect'];
-
     Row row1 = new Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
@@ -80,12 +73,6 @@ class ArticleItemState extends State<ArticleItem> {
           style: new TextStyle(color: Theme.of(context).accentColor),
           textAlign: TextAlign.left,
         )),
-        new GestureDetector(
-          child: new Icon(Icons.favorite, color: Colors.red),
-          onTap: () {
-            ToastUtil.showMessage("收藏_TODO");
-          },
-        )
       ],
     );
 
