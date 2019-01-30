@@ -6,4 +6,7 @@ class Api {
 
   ///首页文章列表
   static const String ARTICLE_LIST = "article/list/";
+
+  ///知识体系
+  static const String TREE = "tree/json";
 }
