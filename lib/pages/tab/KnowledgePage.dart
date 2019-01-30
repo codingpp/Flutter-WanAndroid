@@ -26,18 +26,16 @@ class KnowledgePageState extends State<KnowledgePage> {
       );
     } else {
       Widget listView = new ListView.builder(
-        itemBuilder: (context, i) {
-          buildItem(i);
-        },
         itemCount: listData.length,
+        itemBuilder: (context, i) => buildItem(i),
       );
+
       return listView;
     }
   }
 
   Widget buildItem(i) {
     var itemData = listData[i];
-
 
     Text name = new Text(
       itemData['name'],
@@ -55,10 +53,12 @@ class KnowledgePageState extends State<KnowledgePage> {
       strContent += '${value["name"]}   ';
     }
 
-    Text content = new Text(strContent,
-        softWrap: true,
-        style: new TextStyle(color: Colors.black),
-        textAlign: TextAlign.left);
+    Text content = new Text(
+      strContent,
+      softWrap: true,
+      style: new TextStyle(color: Colors.black),
+      textAlign: TextAlign.left,
+    );
 
     return new Card(
       elevation: 4.0,
@@ -71,17 +71,21 @@ class KnowledgePageState extends State<KnowledgePage> {
           child: new Row(
             children: <Widget>[
               new Expanded(
-                  child: new Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  new Container(
-                    padding: EdgeInsets.only(bottom: 8.0),
-                    child: name,
-                  ),
-                  content
-                ],
-              )),
-              new Icon(Icons.chevron_right, color: Colors.black),
+                child: new Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    new Container(
+                      padding: const EdgeInsets.only(bottom: 8.0),
+                      child: name,
+                    ),
+                    content,
+                  ],
+                ),
+              ),
+              new Icon(
+                Icons.chevron_right,
+                color: Colors.black,
+              ),
             ],
           ),
         ),
