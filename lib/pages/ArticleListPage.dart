@@ -20,7 +20,7 @@ class ArticleListPageState extends State<ArticleListPage>
   @override
   Widget build(BuildContext context) {
     return new Text(
-      id,
+      id + "hello",
       style: new TextStyle(color: Colors.green),
     );
   }
