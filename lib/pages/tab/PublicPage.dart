@@ -1,19 +1,21 @@
+import 'dart:convert';
+
+import 'package:WanAndroid/http/Api.dart';
+import 'package:WanAndroid/pages/ArticleListPage.dart';
+import 'package:WanAndroid/util/NetUtils.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 
 class PublicPage extends StatefulWidget {
-  var data;
-
   @override
-  State<StatefulWidget> createState() {
-    return new PublicPageState();
-  }
+  State<StatefulWidget> createState() => PublicPageState();
 }
 
 class PublicPageState extends State<PublicPage>
     with SingleTickerProviderStateMixin {
   TabController _tabController;
-  List<Tab> tabs = new List();
-  List<dynamic> list;
+
+  List<dynamic> listData;
 
   @override
   void initState() {
@@ -22,11 +24,65 @@ class PublicPageState extends State<PublicPage>
   }
 
   void getList() {
+    NetUtils.get(Api.WECHAT_CHAPTER, params: null).then((data) {
+      var result = json.decode(data);
+      setState(() {
+        listData = result['data'];
+      });
+    });
+  }
 
+  List<Tab> getTabs() {
+    List<Tab> tabs = new List();
+    for (var value in listData) {
+      tabs.add(new Tab(
+        text: value['name'],
+      ));
+    }
+    return tabs;
+  }
+
+  TabController getTabController() {
+    if (null == _tabController) {
+      _tabController = new TabController(length: listData.length, vsync: this);
+    }
+    return _tabController;
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return null;
+    timeDilation = 1.0;
+    if (listData == null) {
+      return new Center(
+        child: new CircularProgressIndicator(),
+      );
+    } else {
+      return new Scaffold(
+          appBar: new AppBar(
+            title: new TabBar(
+              tabs: getTabs(),
+              isScrollable: true,
+              controller: getTabController(),
+              labelColor: Colors.white,
+              unselectedLabelColor: Colors.white,
+              indicatorColor: Colors.white,
+            ),
+          ),
+          body: new DefaultTabController(
+            length: listData.length,
+            child: new TabBarView(
+              children: listData.map((dynamic itemData) {
+                return new ArticleListPage(itemData['id'].toString());
+              }).toList(),
+              controller: getTabController(),
+            ),
+          ));
+    }
   }
 }

@@ -9,4 +9,7 @@ class Api {
 
   ///知识体系
   static const String TREE = "tree/json";
+
+  ///公众号列表
+  static const String WECHAT_CHAPTER = "wxarticle/chapters/json";
 }
