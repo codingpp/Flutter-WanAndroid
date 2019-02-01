@@ -12,4 +12,7 @@ class Api {
 
   ///公众号列表
   static const String WECHAT_CHAPTER = "wxarticle/chapters/json";
+
+  ///莫公众号列表
+  static const String WECHAT_LIST = 'wxarticle/list/';
 }

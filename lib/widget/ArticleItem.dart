@@ -41,10 +41,9 @@ class ArticleItemState extends State<ArticleItem> {
         new Expanded(
             child: new Row(
           children: <Widget>[
-            new Text('作者  '),
             new Text(
               widget.itemData['author'],
-              style: new TextStyle(color: Theme.of(context).accentColor),
+              style: new TextStyle(color: Colors.black45),
             ),
           ],
         )),
@@ -68,9 +67,11 @@ class ArticleItemState extends State<ArticleItem> {
       children: <Widget>[
         new Expanded(
             child: new Text(
-          widget.itemData['chapterName'],
+          widget.itemData['superChapterName'] +
+              "/" +
+              widget.itemData['chapterName'],
           softWrap: true,
-          style: new TextStyle(color: Theme.of(context).accentColor),
+          style: new TextStyle(color: Colors.black45),
           textAlign: TextAlign.left,
         )),
       ],
