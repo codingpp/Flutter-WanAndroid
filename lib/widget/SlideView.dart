@@ -80,7 +80,6 @@ class SlideViewState extends State<SlideView>
   }
 
   void _handOnItemClick(itemData) {
-    print(itemData.toString());
     Navigator.of(context).push(new MaterialPageRoute(builder: (context) {
       return new ArticleDetailPage(
           title: itemData['title'], url: itemData['link']);

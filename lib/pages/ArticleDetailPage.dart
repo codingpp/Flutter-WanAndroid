@@ -43,7 +43,9 @@ class ArticleDetailPageState extends State<ArticleDetailPage> {
         title: new Text(widget.title),
         bottom: new PreferredSize(
             child: isLoad
-                ? new LinearProgressIndicator()
+                ? new LinearProgressIndicator(
+              backgroundColor: Colors.white,
+            )
                 : new Divider(
                     height: 1.0,
                     color: Colors.red,

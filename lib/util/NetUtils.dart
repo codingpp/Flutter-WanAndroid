@@ -15,6 +15,7 @@ class NetUtils {
       url += paramStr;
     }
     http.Response response = await http.get(Api.BASE_URL + url);
+
     return response.body;
   }
 
