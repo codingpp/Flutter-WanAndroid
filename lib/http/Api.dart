@@ -18,4 +18,5 @@ class Api {
 
   ///导航数据
   static const String NAVIGATION_LIST = 'navi/json';
+
 }

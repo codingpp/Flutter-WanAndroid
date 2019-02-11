@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 
-class ProjectPage extends StatelessWidget {
+class ProjectPage extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return new ProjectPageState();
+  }
+}
+
+class ProjectPageState extends State<ProjectPage> {
   @override
   Widget build(BuildContext context) {
-    return new Text('项目');
+    return null;
   }
 }
